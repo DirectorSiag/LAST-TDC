@@ -1,0 +1,2 @@
+correccion de las handwheel mas las rolling, obteniendo las pocisiones desde el dhc
+todas las funciones estan en on_click del radadwidget

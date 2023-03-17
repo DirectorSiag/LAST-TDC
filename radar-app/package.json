@@ -1,0 +1,31 @@
+{
+  "name": "radar-app",
+  "version": "1.0.0",
+  "description": "Una aplicacion en electron para hacer un par de pruebas",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . debug --role main --no-sandbox"
+  },
+  "author": "joelermantraut",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "electron": "^14.2.9",
+    "electron-builder": "^22.13.1"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "math.js": "^1.1.46",
+    "npm": "^8.18.0",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ETHER-TMIO/radar-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ETHER-TMIO/radar-app/issues"
+  },
+  "homepage": "https://github.com/ETHER-TMIO/radar-app#readme"
+}

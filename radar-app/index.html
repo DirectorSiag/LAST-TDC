@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-eval'">
+    <!-- Mantener esto para que funcione el servidor -->
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>TDC</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="body">
+    <div class="checker false">
+      <img class="cruz" src="images/cruz.png" alt="cruz">
+      <img class="tilde" src="images/tilde.png" alt="tilde">
+    </div>
+    <div class="labels">
+      <div class="label">
+        <p>Azimut</p>
+        <input type="text" id="azimut" maxlength="5" placeholder="359.9">
+      </div>
+      <div class="label">
+        <p>Distancia</p>
+        <input type="text" id="distancia" maxlength="5" placeholder="256.0">
+      </div>
+    </div>
+    <div class="open_manual_button">
+      <p>Abrir manual de usuario</p>
+    </div>
+    <div class="angle_points"></div>
+    <div class="radar on">
+      <div class="radar-wrapper">
+
+        <div class="pointer_list">
+          <!-- Aca van los puntos -->
+        </div>
+  
+        <div class="lines_list">
+           <!-- Aca van las lineas -->
+        </div>
+  
+        <div class="text_list">
+          <!-- Aca van los textos -->
+        </div>
+  
+        <div class="image_list">
+          <!-- Aca van las imagenes -->
+        </div>
+        
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+  </body>
+  <!--<script src="./renderer.js"></script>-->
+</html>

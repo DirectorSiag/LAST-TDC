@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+html, body {
+	background-color: #111;
+}
+.open_manual_button {
+  background: teal;
+  color: white;
+
+  width: 100px;
+  height: 100px;
+
+  overflow: hidden;
+
+  border: 3px solid cyan;
+  padding: 0.5em;
+
+  position: absolute;
+  top: 50%;
+  left: 10px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-transform: uppercase;
+  text-align: center;
+}
+.checker {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+
+  width: 50px;
+}
+.checker img {
+  width: 100%;
+  height: auto;
+}
+.checker.true .cruz {
+  display: none;
+}
+.checker.true .tilde {
+  display: block;
+}
+.checker.false .cruz {
+  display: block;
+}
+.checker.false .tilde {
+  display: none;
+}
+.labels {
+  position: absolute;
+
+  color: white;
+
+  padding: .75em 1.5em;
+}
+.labels p {
+  text-align: center;
+  font-size: 1.25em;
+
+  padding: 0.5em;
+}
+.labels input {
+  text-align: center;
+  font-size: 1.5em;
+
+  padding: 0;
+
+  width: 10vw;
+}
+.angle_points {
+  position: absolute;
+  top: -5px;
+  left: -1px;
+  z-index: 10000;
+}
+.angle_point {
+  position: absolute;
+  z-index: 10000;
+
+  color: white;
+
+  transform-origin: bottom center;
+  -webkit-transform-origin: bottom center;
+}
+.angle_point > p {
+  position: absolute;
+  left: 3px;
+  top: -3px;
+
+  font-size: 0.75em;
+}
+.angle_point > div {
+  width: 1px;
+  height: 5px;
+
+  background: #29BE21;
+}
+.angle_point > div.middle {
+  height: 10px;
+}
+.angle_point > div.center {
+  height: 20px;
+}
+.radar {
+  width: 702px;
+  height: 702px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  overflow: hidden;
+
+  border-radius: 50%;
+  border: 2px solid #29BE21;
+
+  box-sizing: content-box;
+}
+.radar.on {
+  background: -webkit-repeating-radial-gradient(rgba(32, 255, 77, 0) 10%, rgba(32, 255, 77, 0) 18%, #29BE21 18.6%, rgba(32, 255, 77, 0) 18.9%), -webkit-linear-gradient(90deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%), -webkit-linear-gradient(0deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%), -webkit-linear-gradient(45deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%), -webkit-linear-gradient(-45deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%);
+  background: repeating-radial-gradient(rgba(32, 255, 77, 0) 10%, rgba(32, 255, 77, 0) 18%, #29BE21 18.6%, rgba(32, 255, 77, 0) 18.9%), linear-gradient(90deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%), linear-gradient(0deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%), linear-gradient(45deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%),  linear-gradient(-45deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50%);
+  /*Diseño si se quieren lineas diagonales*/
+  
+  /*
+  background: -webkit-repeating-radial-gradient(rgba(32, 255, 77, 0) 10%, rgba(32, 255, 77, 0) 18%, #29BE21 18.6%, rgba(32, 255, 77, 0) 18.9%), -webkit-linear-gradient(90deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50.2%), -webkit-linear-gradient(0deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50.2%);
+  background: repeating-radial-gradient(rgba(32, 255, 77, 0) 10%, rgba(32, 255, 77, 0) 18%, #29BE21 18.6%, rgba(32, 255, 77, 0) 18.9%), linear-gradient(90deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50.2%), linear-gradient(0deg, rgba(32, 255, 77, 0) 49.5%, #29BE21 50%, #29BE21 50%, rgba(32, 255, 77, 0) 50.2%);
+  */
+  /*Diseño si solo se quieren lineas transversales*/
+}
+.radar:before {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+}
+.radar:after {
+  content: ' ';
+
+  display: block;
+  background-image: linear-gradient(44deg, rgba(0, 255, 51, 0) 50%, #29BE21 100%);
+
+  width: 50%;
+  height: 50%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  animation: radar-beam 5s infinite;
+  animation-timing-function: linear;
+  transform-origin: bottom right;
+
+  border-radius: 100% 0 0 0;
+
+  display: none;
+}
+@keyframes radar-beam {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.radar-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.radar-wrapper > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.lines_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pointer {
+  width: 4px;
+  height: 4px;
+  
+  border-radius: 1px;
+
+  background: white;
+
+  position: absolute;
+}
+.text {
+  font-size: 10px;
+
+  color: #0eff0e;
+
+  position: absolute;
+
+  margin-left: 15px;
+}
+.image {
+  position: absolute;
+}
+.line {
+  width: 2px;
+
+  background: green;
+
+  position: absolute;
+
+  transform-origin: bottom right;
+  -webkit-transform-origin: bottom right;
+}
+.line.solid {
+  /* Vertical */
+  background: green;
+  /* background-image: linear-gradient(black 100%, rgba(255,255,255,0) 0%); */
+  /* background-size: 10px 10px; */
+  /* https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots */
+}
+.line.dash_1 {
+  /* Patron: | ---- -- | */
+  background-image: linear-gradient(
+    black 0%, black 68%,
+    rgba(0, 0, 0, 0) 69%, rgba(0, 0, 0, 0) 79%,
+    black 80%, black 90%,
+    rgba(0, 0, 0, 0) 91%, rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 40px 40px;
+  /* https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots */
+}
+.line.dash_2 {
+  /* Patron: |  - --- -  | */
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 15%,
+    black 15%, black 23%,
+    rgba(0, 0, 0, 0) 23%, rgba(0, 0, 0, 0) 30%,
+    black 30%, black 70%,
+    rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 77%,
+    black 77%, black 84%,
+    rgba(0, 0, 0, 0) 84%, rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 40px 40px;
+}
+.line.dash_3 {
+  /* Patron: |  -  ---  -  | */
+  /*
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 13%,
+    black 13%, black 23%,
+    rgba(0, 0, 0, 0) 23%, rgba(0, 0, 0, 0) 35%,
+    black 35%, black 65%,
+    rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0) 77%,
+    black 77%, black 87%,
+    rgba(0, 0, 0, 0) 87%, rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 40px 40px;
+  */
+  /* ----------------------- */
+  /* Patron: |  -- --  | */
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%,
+    black 50%, black 100%
+  );
+  background-size: 20px 20px;
+}
+.line.dash_4 {
+  /* Patron: | ----- ----- | */
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%,
+    black 20%, black 100%
+  );
+  background-size: 40px 40px;
+}
+.line.dash_5 {
+  /* Patron: | ----- ----- | */
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%,
+    black 20%, black 100%
+  );
+  background-size: 40px 40px;
+}
+.line.dash_6 {
+  /* Patron: | --- --- | */
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%,
+    black 50%, black 100%
+  );
+  background-size: 40px 40px;
+}
+.line.dash_7 {
+  /* Patron: | -- -- | */
+  /*
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%,
+    black 50%, black 100%
+  );
+  background-size: 20px 20px;
+  */
+  /* ----------------------- */
+  /* Patron: | ----- ----- | */
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%,
+    black 20%, black 100%
+  );
+  background-size: 40px 40px;
+}
